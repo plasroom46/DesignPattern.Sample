@@ -27,8 +27,6 @@ class UtProxy(unittest.TestCase):
         )
 
         extraPlacePricer = ExtraPlacePricer(stdPricer)
-        extraPlacePricer.price(transport)
-
         delayPricer = DelayPricer(extraPlacePricer)
         actual = delayPricer.price(transport)
 

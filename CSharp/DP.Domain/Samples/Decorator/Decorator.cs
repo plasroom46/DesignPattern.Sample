@@ -13,6 +13,7 @@ namespace DP.Domain.Samples.Decorator
             this.stdPricer = pricer;
             this.Customer = pricer.Customer;
             this.Receiver = pricer.Receiver;
+            this.Freight = pricer.Freight;
         }
     }
 }
