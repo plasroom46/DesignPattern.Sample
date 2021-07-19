@@ -63,7 +63,7 @@ namespace DP.UnitTest
             var isEnemyTough = true;
             if(isEnemyTough)//敵方砲火猛烈=>更新命令
             {
-                //取消空軍支援
+                //取消空軍防守
                 invokerLanded.CancelCommand(commandsLanded[2]);
                 //改加入空軍突破
                 invokerLanded.AddCommand(new CmdBreakthrough(airForce));
