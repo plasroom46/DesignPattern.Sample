@@ -12,7 +12,12 @@ namespace DP.Domain.Samples.State
             context.CurrentState = new StateWorking();
             Trace.WriteLine("The requirement is on TODO list, send email to IT manager.");
         }
-        
+
+        public override void ActionBack(Context context)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override string ToString()
         {
             return "TODO(待做事項)";

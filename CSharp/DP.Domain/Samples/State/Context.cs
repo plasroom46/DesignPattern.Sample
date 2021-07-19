@@ -20,5 +20,10 @@ namespace DP.Domain.Samples.State
         {
             this._state.Action(this);
         }
+
+        public void ActionBack()
+        {
+            this._state.ActionBack(this);
+        }
     }
 }

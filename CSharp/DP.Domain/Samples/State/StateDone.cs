@@ -12,7 +12,12 @@ namespace DP.Domain.Samples.State
             context.CurrentState = null;
             Trace.WriteLine("Close the requirement, send email to all stakeholders!");
         }
-        
+
+        public override void ActionBack(Context context)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override string ToString()
         {
             return "Done(已完成)";

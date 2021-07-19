@@ -7,3 +7,6 @@ class Context:
 
     def action(self):
         self.currentState.action(self)
+        
+    def actionBack(self):
+        self.currentState.actionBack(self)

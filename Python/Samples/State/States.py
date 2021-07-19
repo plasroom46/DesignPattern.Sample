@@ -6,6 +6,9 @@ class State(ABC):
     def action(self,context=Context):
         pass
 
+    @abstractmethod
+    def actionBack(self,context=Context):
+        pass
 
 class StateToDo(State):
     def __str__(self):
@@ -17,7 +20,10 @@ class StateToDo(State):
 
         # Set next state
         context.currentState = StateWorking()
-        print("The requirement is on TODO list, send email to IT manager.");
+        print("The requirement is on TODO list, send email to IT manager.")
+
+    def actionBack(self,context=Context):
+        pass
 
 class StateWorking(State):
     def __str__(self):
@@ -29,8 +35,10 @@ class StateWorking(State):
 
         # Set next state
         context.currentState = StateTesting()
-        print("The requirement is completed, send email to users!");
+        print("The requirement is completed, send email to users!")
 
+    def actionBack(self,context=Context):
+        pass
 
 class StateTesting(State):
     def __str__(self):
@@ -42,7 +50,15 @@ class StateTesting(State):
 
         # Set next state
         context.currentState = StateDone()
-        print("Test ok, send email to operation team!");
+        print("Test ok, send email to operation team!")
+    
+    def actionBack(self,context=Context):
+        
+        # Do something...
+
+        # Set next state
+        context.currentState = StateWorking()
+        print("Test NG, send email to development team!")
     
 class StateDone(State):
     def __str__(self):
@@ -54,4 +70,7 @@ class StateDone(State):
 
         # Set next state
         context.currentState = None
-        print("Close the requirement, send email to all stakeholders!");
+        print("Close the requirement, send email to all stakeholders!")
+    
+    def actionBack(self,context=Context):
+        pass

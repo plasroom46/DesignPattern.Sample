@@ -24,11 +24,16 @@ namespace DP.UnitTest
             var actualFinalState = string.Empty;
 
             var context = new Context();
+            int hasDefect = 0;
             while (context.CurrentState != null)
             {
                 actualFinalState = context.CurrentState.ToString();
                 Trace.WriteLine($"需求目前狀態={actualFinalState}");
-                context.Action();
+                // 主程式(回到上一個狀態)
+                if (hasDefect == 2) // StateTesting(第一次測試失敗)
+                    context.ActionBack();
+                else context.Action();
+                hasDefect++;
             }
 
             Assert.Equal(expectedFinalState, actualFinalState);

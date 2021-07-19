@@ -12,7 +12,12 @@ namespace DP.Domain.Samples.State
             context.CurrentState = new StateTesting();
             Trace.WriteLine("The requirement is completed, send email to users!");
         }
-        
+
+        public override void ActionBack(Context context)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override string ToString()
         {
             return "Working(進行中)";

@@ -12,11 +12,20 @@ namespace DP.Domain.Samples.State
             context.CurrentState = new StateDone();
             Trace.WriteLine("Test ok, send email to operation team!");
         }
+        public override void ActionBack(Context context)
+        {
+            //Do something
 
-     
+            //Set next state
+            context.CurrentState = new StateWorking();
+            Trace.WriteLine("Test NG, send email to development team!");
+        }
+
         public override string ToString()
         {
             return "Testing(測試中)";
-        } 
+        }
+
+        
     }
 }
